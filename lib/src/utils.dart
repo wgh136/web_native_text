@@ -9,10 +9,10 @@ void writeTextToElement(
     String? maxLines,
     TextDirection? textDirection,
     TextOverflow? overflow) {
-  if (e is HTMLInputElement) {
-    e.value = text;
-  } else if (e is HTMLTextAreaElement) {
-    e.value = text;
+  if (e.localName == "input") {
+    (e as HTMLInputElement).value = text;
+  } else if (e.localName == "textarea") {
+    (e as HTMLTextAreaElement).value = text;
   } else {
     e.innerText = text;
     e.style.whiteSpace = "pre-wrap";
