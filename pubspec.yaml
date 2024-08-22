@@ -1,5 +1,5 @@
 name: web_native_text
-description: "A new Flutter package project."
+description: "A flutter package that renders text using html."
 version: 0.0.1
 homepage:
 

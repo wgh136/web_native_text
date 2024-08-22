@@ -9,7 +9,14 @@ void writeTextToElement(
     String? maxLines,
     TextDirection? textDirection,
     TextOverflow? overflow) {
-  e.innerText = text;
+  if (e is HTMLInputElement) {
+    e.value = text;
+  } else if (e is HTMLTextAreaElement) {
+    e.value = text;
+  } else {
+    e.innerText = text;
+    e.style.whiteSpace = "pre-wrap";
+  }
   var color = style.color ?? const Color(0xFF000000);
   e.style
     ..fontWeight = style.fontWeight?.value.toString() ?? '400'
